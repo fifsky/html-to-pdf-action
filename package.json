@@ -3,6 +3,11 @@
   "version": "0.0.1",
   "description": "html to pdf action for github action",
   "main": "lib/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fifsky/html-to-pdf-action.git"
+  },
+  "homepage": "https://github.com/fifsky/html-to-pdf-action#readme",
   "keywords": [
     "actions",
     "container",
