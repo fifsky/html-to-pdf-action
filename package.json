@@ -1,16 +1,10 @@
 {
-  "name": "container-toolkit-template",
-  "version": "0.0.0",
-  "description": "Container template action using actions/toolkit",
+  "name": "html to pdf action",
+  "version": "0.0.1",
+  "description": "html to pdf action for github action",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
-    "format": "prettier --write **/*.ts",
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/actions/container-toolkit-template.git"
   },
   "keywords": [
     "actions",
@@ -18,12 +12,8 @@
     "toolkit",
     "setup"
   ],
-  "author": "GitHub",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/actions/container-toolkit-template/issues"
-  },
-  "homepage": "https://github.com/actions/container-toolkit-template#readme",
+  "author": "fifsky@gmail.com",
+  "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.0.0",
     "@actions/exec": "^1.0.0",
