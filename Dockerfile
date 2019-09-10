@@ -3,6 +3,7 @@ LABEL MAINTAINER="Xudong Cai <fifsky@gmail.com>"
 ENV TZ=Asia/Shanghai
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD true
 
+#chromium@76.0.3809.132-r0
 RUN apk update && apk upgrade && \
     echo @edge http://nl.alpinelinux.org/alpine/edge/community >> /etc/apk/repositories && \
     echo @edge http://nl.alpinelinux.org/alpine/edge/main >> /etc/apk/repositories && \
