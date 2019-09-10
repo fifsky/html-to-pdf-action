@@ -3,9 +3,6 @@
   "version": "0.0.1",
   "description": "html to pdf action for github action",
   "main": "lib/main.js",
-  "scripts": {
-    "build": "tsc",
-  },
   "keywords": [
     "actions",
     "container",
