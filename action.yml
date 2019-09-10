@@ -6,7 +6,7 @@ inputs:
     description: 'html path'
     required: true
 
-  output:
+  outputFile:
     description: 'output file path'
     required: true
 
