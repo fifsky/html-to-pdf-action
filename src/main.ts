@@ -1,14 +1,26 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
+const HTML5ToPDF = require("html5-to-pdf")
 
 async function run() {
   try {
-    const myInput = core.getInput('myInput');
-    core.debug(`Hello ${myInput} from inside a container`);
+    const htmlFile = core.getInput('htmlFile');
+    const output = core.getInput('output');
 
-    // Get github context data
-    const context = github.context;
-    console.log(`We can even get context data, like the repo: ${context.repo.repo}`)
+    core.debug(`Start conver ${htmlFile} to PDF`);
+
+    (async () => {
+      const html5ToPDF = new HTML5ToPDF({
+        launchOptions:{dumpio: true},
+        inputPath: htmlFile,
+        outputPath: output
+      })
+
+      await html5ToPDF.start()
+      await html5ToPDF.build()
+      await html5ToPDF.close()
+      console.log("PDF Generate DONE")
+    })()
+
   } catch (error) {
     core.setFailed(error.message);
   }

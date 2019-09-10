@@ -1,10 +1,19 @@
-name: 'Container Action Template'
-description: 'Get started with Container actions'
-author: 'GitHub'
-inputs: 
-  myInput:
-    description: 'Input to use'
-    default: 'world'
+name: 'HTML to PDF'
+description: 'Node module that converts HTML files to PDFs.'
+author: 'fifsky@gmail.com'
+inputs:
+  htmlFile:
+    description: 'html path'
+    required: true
+
+  output:
+    description: 'output file path'
+    required: true
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
+
+branding:
+  color: "blue"
+  icon: "file"
