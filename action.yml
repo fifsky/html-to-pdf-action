@@ -3,7 +3,7 @@ description: 'Node module that converts HTML files to PDFs.'
 author: 'fifsky@gmail.com'
 inputs:
   htmlFile:
-    description: 'html path'
+    description: 'html file path'
     required: true
 
   outputFile:
