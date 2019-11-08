@@ -1,14 +1,6 @@
 const autoBind = require("auto-bind")
 const puppeteer = require("puppeteer")
-const map = require("lodash/map")
-const pickBy = require("lodash/pickBy")
 const Server = require("./server")
-const {
-  readBodyOrFile,
-  convertPath,
-  getTemplateFilePath,
-  convertIncludes,
-} = require("./util")
 
 class HTML5ToPDF {
   constructor(options) {
@@ -18,78 +10,33 @@ class HTML5ToPDF {
 
   parseOptions(options) {
     const {
-      inputBody,
       inputPath,
       outputPath,
-      templateUrl,
-      renderDelay,
       launchOptions,
-      include = [],
+      pdfOptions,
     } = options
-    const legacyOptions = options.options || {}
-    const pdf = pickBy(
-      options.pdf || {
-        landscape: legacyOptions.landscape,
-        format: legacyOptions.pageSize,
-        printBackground: legacyOptions.printBackground,
-      },
-    )
-    if (!pdf.path && outputPath) {
-      pdf.path = convertPath(outputPath)
-    }
-    const templatePath = getTemplateFilePath(options)
-    const body = readBodyOrFile(inputBody, inputPath)
-    return {
-      body,
-      pdf,
-      templatePath,
-      templateUrl,
-      launchOptions,
-      include: convertIncludes(include),
-      renderDelay,
-    }
-  }
 
-  includeAssets() {
-    const includePromises = map(this.options.include, ({ type, filePath }) => {
-      if (type === "js") {
-        return this.page.addScriptTag({
-          path: filePath,
-        })
-      }
-      if (type === "css") {
-        return this.page.addStyleTag({
-          path: filePath,
-        })
-      }
-    })
-    includePromises.push(() => {
-      return this.page.addStyleTag({
-        path: getTemplateFilePath("pdf.css"),
-      })
-    })
-    includePromises.push(() => {
-      return this.page.addStyleTag({
-        path: getTemplateFilePath("highlight.css"),
-      })
-    })
-    return Promise.all(includePromises)
+    const pdf = pdfOptions
+    pdf.path = outputPath
+
+    return {
+      pdf,
+      launchOptions,
+      inputPath
+    }
   }
 
   async start() {
-    this.server = new Server(this.options)
-    await this.server.listen()
+    this.server = new Server(process.cwd())
     this.browser = await puppeteer.launch(this.options.launchOptions)
     this.page = await this.browser.newPage()
-    await this.page.goto(this.server.address(), {
-      waitUntil: "networkidle2",
+    const url = "http://localhost:3000/" + this.options.inputPath
+    await this.page.goto(url, {
+      waitUntil: "networkidle0",
     })
-    await this.page.setContent(this.options.body)
-    await this.includeAssets()
     if (this.options.renderDelay) {
       await this.page.waitFor(this.options.renderDelay)
     }
-    await page.screenshot({ path: './public/test.png' });
     return this.page
   }
 
@@ -102,7 +49,7 @@ class HTML5ToPDF {
 
   async close() {
     await this.browser.close()
-    await this.server.close()
+    this.server.close()
   }
 }
 

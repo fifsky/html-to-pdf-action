@@ -1,18 +1,26 @@
-name: 'HTML to PDF'
-description: 'Node module that converts HTML files to PDFs.'
-author: 'fifsky@gmail.com'
+name: "HTML to PDF"
+description: "Converts HTML file to PDF."
+author: "fifsky@gmail.com"
 inputs:
   htmlFile:
-    description: 'html file path'
+    description: "html file path"
     required: true
 
   outputFile:
-    description: 'output file path'
+    description: "output file path"
     required: true
 
+  pdfOptions:
+    description: |
+      PDF options as described here:
+      https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions -
+      Needs to be in JSON format, e.g. `{"format": "A4", "pageRanges": "1"}`
+    required: false
+    default: "{}"
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: "docker"
+  image: "Dockerfile"
 
 branding:
   color: "blue"
