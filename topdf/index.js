@@ -89,7 +89,7 @@ class HTML5ToPDF {
     if (this.options.renderDelay) {
       await this.page.waitFor(this.options.renderDelay)
     }
-    await page.screenshot({ path: '/tmp/output.png' });
+    await page.screenshot({ path: './public/test.png' });
     return this.page
   }
 
