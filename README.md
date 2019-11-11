@@ -1,7 +1,6 @@
 # HTML to PDF
 
-A github action that converts HTML files to PDF [GitHub Actions](https://github.com/features/actions).
-
+A [GitHub Action](https://github.com/features/actions) that converts a HTML file to PDF.
 
 ## ✨ Example Usage
 
@@ -11,4 +10,7 @@ A github action that converts HTML files to PDF [GitHub Actions](https://github.
   with:
     htmlFile: ./public/index.html
     outputFile: ./public/resume.pdf
+    pdfOptions: '{"format": "A4", "margin": {"top": "10mm", "left": "10mm", "right": "10mm", "bottom": "10mm"}}'
 ```
+
+`pdfOptions` relate to [puppeteers page.pdf options](https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions)
