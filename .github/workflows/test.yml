@@ -12,6 +12,11 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+
       - name: html to pdf
         uses: fifsky/html-to-pdf-action@master
         with:
