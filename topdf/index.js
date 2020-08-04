@@ -38,7 +38,6 @@ class HTML5ToPDF {
       await this.page.waitFor(this.options.renderDelay)
     }
     console.log(this.page)
-    await this.page.emulateMedia('screen')
     return this.page
   }
 
