@@ -41,7 +41,8 @@ class HTML5ToPDF {
   }
 
   async build() {
-    await this.page.emulateMediaType('screen');
+    await this.page.emulateMediaType('screen')
+    console.log(this.options.pdf)
     const buf = await this.page.pdf(this.options.pdf)
     if (!this.options.pdf.path) {
       return buf
