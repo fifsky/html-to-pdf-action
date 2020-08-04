@@ -1,0 +1,26 @@
+name: Test Build Pdf
+
+on: [push, pull_request]
+
+jobs:
+  html_to_pdf:
+    name: Generate PDF
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+
+    steps:
+      - name: html to pdf
+        uses: fifsky/html-to-pdf-action@master
+        with:
+          htmlFile: ./example.html
+          outputFile: ./example.pdf
+          pdfOptions: '{"margin": {"top": "100", "left": "100", "right": "100", "bottom": "100"}}'
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Proof-of-Space-Document
+          path: ./example.pdf
