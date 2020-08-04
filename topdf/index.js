@@ -37,12 +37,12 @@ class HTML5ToPDF {
     if (this.options.renderDelay) {
       await this.page.waitFor(this.options.renderDelay)
     }
+    console.log(this.page)
+    await this.page.emulateMediaType('screen')
     return this.page
   }
 
   async build() {
-    await this.page.emulateMediaType('screen')
-    console.log(this.options.pdf)
     const buf = await this.page.pdf(this.options.pdf)
     if (!this.options.pdf.path) {
       return buf
