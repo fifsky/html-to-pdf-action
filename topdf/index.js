@@ -37,7 +37,6 @@ class HTML5ToPDF {
     if (this.options.renderDelay) {
       await this.page.waitFor(this.options.renderDelay)
     }
-    console.log(this.page)
     return this.page
   }
 

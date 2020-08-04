@@ -22,7 +22,7 @@ jobs:
         with:
           htmlFile: ./example.html
           outputFile: ./example.pdf
-          pdfOptions: '{"margin": {"top": "1000px", "left": "100px", "right": "100px", "bottom": "100px"}}'
+          pdfOptions: '{"margin": {"top": "1px", "left": "100px", "right": "100px", "bottom": "100px"}}'
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
