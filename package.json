@@ -23,8 +23,9 @@
     "@actions/io": "^1.0.0",
     "@actions/tool-cache": "^1.0.0",
     "auto-bind": "^2.1.0",
-    "serve-static": "^1.14.1",
-    "finalhandler": "^1.1.2"
+    "finalhandler": "^1.1.2",
+    "get-stream": "^5.1.0",
+    "serve-static": "^1.14.1"
   },
   "devDependencies": {
     "@types/node": "^10.10.4",
