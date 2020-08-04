@@ -22,10 +22,10 @@ jobs:
         with:
           htmlFile: ./example.html
           outputFile: ./example.pdf
-          pdfOptions: '{"margin": {"top": "100", "left": "100", "right": "100", "bottom": "100"}}'
+          pdfOptions: '{"margin": {"top": "1000", "left": "100", "right": "100", "bottom": "100"}}'
 
       - name: Upload artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: Proof-of-Space-Document
+          name: Example PDF
           path: ./example.pdf
