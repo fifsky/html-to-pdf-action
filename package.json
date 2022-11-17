@@ -1,6 +1,6 @@
 {
   "name": "html-to-pdf-action",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "html to pdf action for github action",
   "main": "lib/main.js",
   "repository": {
