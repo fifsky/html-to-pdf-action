@@ -2,7 +2,7 @@ FROM ghcr.io/puppeteer/puppeteer:18.1.0
 
 LABEL MAINTAINER="Xudong Cai <fifsky@gmail.com>"
 
-ENTRYPOINT ["node", "/lib/main.js"]
+ENTRYPOINT ["node", "./lib/main.js"]
 
 COPY . .
 
