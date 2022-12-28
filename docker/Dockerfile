@@ -1,4 +1,4 @@
-FROM ghcr.io/puppeteer/puppeteer:16.1.0
+FROM ghcr.io/puppeteer/puppeteer:18.1.0
 
 LABEL MAINTAINER="Xudong Cai <fifsky@gmail.com>"
 
