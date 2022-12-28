@@ -1,4 +1,4 @@
-FROM buildkite/puppeteer:10.0.0
+FROM ghcr.io/puppeteer/puppeteer:14.4.1
 
 LABEL MAINTAINER="Xudong Cai <fifsky@gmail.com>"
 
