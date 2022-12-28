@@ -1,4 +1,4 @@
-FROM ghcr.io/puppeteer/puppeteer:18.1.0
+FROM buildkite/puppeteer:v1.15.0
 
 LABEL MAINTAINER="Xudong Cai <fifsky@gmail.com>"
 
@@ -8,4 +8,4 @@ COPY . .
 
 RUN npm install --production
 
-ENTRYPOINT ["node", "./lib/main.js"]
+ENTRYPOINT ["node", "/lib/main.js"]
