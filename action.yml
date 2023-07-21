@@ -13,7 +13,7 @@ inputs:
   pdfOptions:
     description: |
       PDF options as described here:
-      https://github.com/GoogleChrome/puppeteer/blob/master/docs/api.md#pagepdfoptions -
+      https://github.com/puppeteer/puppeteer/blob/main/docs/api/puppeteer.pdfoptions.md#pdfoptions-interface -
       Needs to be in JSON format, e.g. `{"format": "A4", "pageRanges": "1"}`
     required: false
     default: "{}"
