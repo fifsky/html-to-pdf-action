@@ -20,6 +20,10 @@ jobs:
         with:
           fetch-depth: 1
 
+      - name: Node version
+        run:
+            node -v
+            npm -v
       - name: html to pdf
         uses: fifsky/html-to-pdf-action@master
         with:
