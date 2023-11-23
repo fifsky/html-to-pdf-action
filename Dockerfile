@@ -6,6 +6,8 @@ COPY . .
 
 #RUN mv simsun.ttf /usr/local/share/fonts/
 
+RUN node -v
+RUN npm -v
 RUN npm install --production
 
 ENTRYPOINT ["node", "/lib/main.js"]
