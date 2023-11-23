@@ -9,5 +9,6 @@ COPY . .
 RUN node -v
 RUN npm -v
 RUN npm install --production
+RUN cat /node_modules/@actions/http-client/node_modules/undici/package.json
 
 ENTRYPOINT ["node", "/lib/main.js"]
